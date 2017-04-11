@@ -1,1 +1,40 @@
-{     "devDependencies": {         "bcryptjs": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-bcryptjs",     "homepage": "https://github.com/npmtest/node-npmtest-bcryptjs",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-bcryptjs.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "test coverage for [bcryptjs (v2.4.3)](https://github.com/dcodeIO/bcrypt.js#readme) [![npm package](https://img.shields.io/npm/v/npmtest-bcryptjs.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-bcryptjs) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-bcryptjs.svg)](https://travis-ci.org/npmtest/node-npmtest-bcryptjs)",
+    "devDependencies": {
+        "bcryptjs": "*",
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-bcryptjs",
+    "keywords": [
+        "coverage",
+        "test",
+        "bcryptjs"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_bcryptjs.js",
+    "name": "npmtest-bcryptjs",
+    "nameAlias": "npmtest_bcryptjs",
+    "nameOriginal": "npmtest-bcryptjs",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-bcryptjs.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
